@@ -1,3 +1,5 @@
+/*
+
 // Variables del carrito
 let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 let total = JSON.parse(localStorage.getItem('total')) || 0;
@@ -63,5 +65,72 @@ function aplicarDescuento() {
     }
 }
 
+function finalizar(){
+
+}
+
 // Llamada inicial para cargar el carrito al cargar la página
 actualizarCarrito();
+
+*/
+
+class Carrito{
+    constructor(){
+        this.listaCarrito = []
+        this.contenedor_carrito = document.getElementById("contenedor_carrito")
+        this.total = document.getElementById("total")
+        this.finalizar_compra = document.getElementById("finalizar_compra")
+        this.keyStorage = "listaCarrito"
+    }
+
+    levantarStorage(){
+        this.listaCarrito = JSON.parse(localStorage.getItem(this.keyStorage)) || []
+
+        if(this.listaCarrito.length > 0){
+            let listaAuxiliar = []
+
+            for (let i = 0; i < this.listaCarrito.length; i++){
+                let productoClaseProducto = new Producto(this.listaCarrito[i])
+                listaAuxiliar.push(productoClaseProducto)
+            }
+            this.listaCarrito = listaAuxiliar
+        }
+    }
+    guardarEnStorage(){
+        let listaCarritoJSON = JSON.stringify(this.listaCarrito)
+        localStorage.setItem(this.keyStorage, listaCarritoJSON)
+    }
+
+    agregar(productoAgregar){
+        let existeElProducto = this.listaCarrito.some(producto => producto.id == productoAgregar.id)
+
+        if(existeElProducto){
+            let producto = this.listaCarrito.find(producto => producto.id == productoAgregar.id)
+            producto.cantidad = producto.cantidad + 1
+        }else{
+            this.listaCarrito.push(productoAgregar)
+        }
+    }
+
+    eliminar(productoEliminar){
+        let producto = this.listaCarrito.find(producto => producto.id == productoEliminar.id)
+        let indice = this.listaCarrito.indexOf(producto)
+        this.listaCarrito.splice(indice, 1)
+    }
+    
+    limpiarContenedorCarrito(){
+        this.contenedor_carrito.innerHTML = ""
+    }
+
+    mostrarProductos(){
+        this.limpiarContenedorCarrito()
+        this.listaCarrito.forEach(producto => {
+            contenedor_carrito.innerHTML += producto.descripcionHTMLCarrito()
+        })
+
+        this.listaCarrito.forEach(producto => {
+            let
+        })
+    }
+}
+

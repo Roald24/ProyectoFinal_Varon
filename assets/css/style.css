@@ -151,7 +151,7 @@ body {
   border: 1px solid #3ccc35;
   padding: 10px;
   width: 150px;
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
   z-index: 999;
@@ -234,4 +234,5 @@ body {
 #descuentos {
   padding: 15px;
   margin: 50px;
+  background-color: chartreuse;
 }
