@@ -1,20 +1,32 @@
 // Variables del carrito
-const carrito = [];
-let total = 0;
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+let total = JSON.parse(localStorage.getItem('total')) || 0;
 
-// Aregar elementos al carrito
+// Agregar elementos al carrito
 function agregarAlCarrito(nombre, precio) {
     const producto = { nombre, precio };
     carrito.push(producto);
     total += precio;
+    guardarEnStorage();
     actualizarCarrito();
 }
 
+
+
+
+
 // Vaciar el carrito
 function vaciarCarrito() {
-    carrito.length = 0;
+    carrito = [];
     total = 0;
+    guardarEnStorage();
     actualizarCarrito();
+}
+
+// Guardar el carrito y total en el Storage
+function guardarEnStorage() {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    localStorage.setItem('total', JSON.stringify(total));
 }
 
 // Actualizar el carrito, agregar, eliminar y precio total
@@ -31,3 +43,25 @@ function actualizarCarrito() {
 
     precioTotal.textContent = `Total: $${total}`;
 }
+
+let descuentoAplicado = false;
+
+function aplicarDescuento() {
+    if (!descuentoAplicado) {
+        const descuentoPorcentaje = 0.25;
+        for (let i = 0; i < carrito.length; i++) {
+            const precioOriginal = carrito[i].precio;
+            const descuento = precioOriginal * descuentoPorcentaje;
+            const precioConDescuento = precioOriginal - descuento;
+            carrito[i].precio = precioConDescuento;
+            total -= descuento;
+        }
+
+        descuentoAplicado = true;
+        guardarEnStorage();
+        actualizarCarrito();
+    }
+}
+
+// Llamada inicial para cargar el carrito al cargar la página
+actualizarCarrito();

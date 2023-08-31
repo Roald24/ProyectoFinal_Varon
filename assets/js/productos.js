@@ -5,7 +5,8 @@ const productos = [
     { nombre: 'Wedding Cake', precio: 850 },
     { nombre: 'Afgani', precio: 1000 },
     { nombre: 'Scout Cookies', precio: 900 },
-    { nombre: 'Critical', precio: 700 }
+    { nombre: 'Critical', precio: 700 },
+    { nombre: 'Cheese', precio: 1000},
 ];
 
 

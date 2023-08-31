@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="shortcut icon" href="../assets/img/bluemoonicon.png" type="image/x-icon">
     <title>Kuro Cannabis, Productos</title>
 </head>
@@ -28,13 +30,12 @@
             <a href="#" class="navbar_links">Productos</a>
             <a href="./registro.html" class="navbar_links">Registro</a>
         </div>
-    <!--
+
         <div>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="fa-solid fa-cart-shopping"></i>
             </button>
         </div>
-    -->
     </nav>
 
 
@@ -60,29 +61,39 @@
         <div class="producto">
             <img src="../assets/img/og-kush.jpg" alt="OG Kush">
             <p>OG Kush - $800</p>
-            <button onclick="agregarAlCarrito('OG Kush', 800)">Agregar al Carrito</button>
+            <button id="agregar_al_carrito">Agregar al Carrito</button>
         </div>
 
         <div class="producto">
             <img src="../assets/img/wedding_cake.jpg" alt="Wedding Cake">
             <p>Wedding Cake - $850</p>
-            <button onclick="agregarAlCarrito('Wedding Cake', 850)">Agregar al Carrito</button>
+            <button id="agregar_al_carrito">Agregar al Carrito</button>
         </div>
         <div class="producto">
             <img src="../assets/img/afgani.jpg" alt="Afgani">
             <p>Afgani - $1000</p>
-            <button onclick="agregarAlCarrito('Afgani', 1000)">Agregar al Carrito</button>
+            <button id="agregar_al_carrito">Agregar al Carrito</button>
         </div>
         <div class="producto">
             <img src="../assets/img/scout_cookies.jpg" alt="Scout Cookies">
             <p>Scout Cookies - $900</p>
-            <button onclick="agregarAlCarrito('Scout Cookies', 900)">Agregar al Carrito</button>
+            <button id="agregar_al_carrito">Agregar al Carrito</button>
         </div>
         <div class="producto">
             <img src="../assets/img/critical_kush_purple.jpg" alt="Critical">
             <p>Critical - $700</p>
-            <button onclick="agregarAlCarrito('Critical', 700)">Agregar al Carrito</button>
+            <button id="agregar_al_carrito">Agregar al Carrito</button>
         </div>
+        <div class="producto">
+            <img src="../assets/img/cheese.jpg" alt="Cheese">
+            <p>Cheese - $1000</p>
+            <button id="agregar_al_carrito">Agregar al Carrito</button>
+        </div>
+    </div>
+
+
+    <div>
+        <button id="descuentos">Apreta aplicar descuentos</button>
     </div>
 
 
@@ -98,8 +109,21 @@
     </div>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+        </script>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
     <script src="../assets/js/productos.js"></script>
     <script src="../assets/js/carrito.js"></script>
+    <script src="../assets/js/descuentos.js"></script>
 </body>
 
 </html>
